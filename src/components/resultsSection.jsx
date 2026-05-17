@@ -1,5 +1,8 @@
 export default function resultssection(){
     return(
-        <section>ewdf</section>
+        <section className="results-sec">
+            <h1>That's Your recipe 👨‍🍳</h1>
+            <p></p>
+        </section>
     )
 }

@@ -85,6 +85,8 @@ main section{
     background-color: orange;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.44);
     transition: 0.25s;
+    cursor: pointer;
+
 }
 .ready-con div{
     flex-direction: column;
@@ -95,3 +97,18 @@ main section{
     font-size: 0.75rem;
     color: grey;
 } 
+.results-sec{
+    align-items: center;
+    gap: 25px;
+    height: 100%;
+}
+.results-sec h1{
+    white-space: nowrap;
+}
+.results-sec p{
+    width: 100%;
+    height: 70%;
+    background-color: white;
+    box-shadow: 0 0 3px black;
+    border-radius: 5px;
+}
