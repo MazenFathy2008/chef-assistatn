@@ -7,6 +7,8 @@ body{
   justify-content: center;
   align-items: center;
   background-color: antiquewhite;
+    overflow: hidden;
+
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 #root{
@@ -14,4 +16,5 @@ body{
   height: 90%;
   border: 3px black solid ;
   border-radius: 10px;
+  background-color: whitesmoke;
 }
