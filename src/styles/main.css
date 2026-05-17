@@ -17,7 +17,7 @@ main section{
     border-right:1px solid black ;
     position: relative;
 }
-.input-Sec div{
+.input-Sec div, form{
     display: flex;
     
 }
@@ -65,6 +65,13 @@ main section{
 }
 .ingredients-con h1{
     font-size: 1.5rem;
+}
+.empty-list{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-size: 1.45rem;
+    white-space: nowrap;
 }
 .ready-con{
     background-color: rgb(214, 214, 214);
