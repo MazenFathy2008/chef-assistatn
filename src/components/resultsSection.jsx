@@ -3,8 +3,7 @@ import {useState} from"react"
 export default function resultssection({ dataList }) {
 	const [respon,setRespons] = useState()
 	async function res() {
-		const data = await gt()
-		console.log(data)
+		const data = await gt(dataList)
 		setRespons(data)
 	}
   return (
@@ -24,7 +23,8 @@ export default function resultssection({ dataList }) {
 
       <h1>That's Your recipe 👨‍🍳</h1>
       <section>
-				{respon}
+
+				<div dangerouslySetInnerHTML={{__html:respon}}></div>
         {/* <h3>There is no recipe yet.</h3> */}
       </section>
     </section>

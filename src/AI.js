@@ -18,10 +18,10 @@ const prompt = `You are an AI Chef Assistant that generates cooking
   keeping the result sensible. Your output must be 
   strictly in clean HTML format with no markdown or 
   extra text outside HTML, and it must follow this structure: an 
-  h1 for the recipe title, an h2 section for required ingredients 
+  h3 for the recipe title, an h4 section for required ingredients 
   with an unordered list showing each ingredient with estimated 
   quantities, an 
-  h2 section for instructions with an ordered list of clear 
+  h4 section for instructions with an ordered list of clear 
   step-by-step cooking directions, 
   and an optional notes section for tips or substitutions.
   Always infer reasonable ingredient quantities when not provided, 
@@ -30,7 +30,8 @@ const prompt = `You are an AI Chef Assistant that generates cooking
   chef-like, avoid unnecessary explanations, and prioritize 
   simplicity and real-world 
   cooking success while staying faithful to the user’s
-  ingredients, don't put any addtional html like head and body but put header for each section in the respons.`;
+  ingredients, don't put any addtional html like head and body but put header for each section in the respons. 
+  if the ingredients are meaningless send massege in h3. don't use h1 at all script `;
 const Ai = new Groq({ apiKey: token, dangerouslyAllowBrowser: true });
 const request = {
   messages: [
@@ -47,7 +48,8 @@ const request = {
   max_tokens: 500,
   temperature: 0.3,
 };
-export default async function gt() {
+export default async function gt(dataList) {
+  request.messages[1].content = JSON.stringify(dataList)
   const data = await Ai.chat.completions.create(request);
   return data.choices[0].message.content;
 }
