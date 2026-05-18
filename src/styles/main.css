@@ -66,6 +66,24 @@ main section{
 .ingredients-con h1{
     font-size: 1.5rem;
 }
+.ingredients-con button{
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    background-color: red;
+    color: white;
+    filter: grayscale(0.4);
+    transition: 0.25s;
+    box-shadow: 0 0 3px rgb(142, 142, 142);
+}
+.ingredients-con button:hover{
+    filter: grayscale(0.2);
+    box-shadow: 1px 1px 3px rgb(142, 142, 142);
+}
+.ingredients-con button:active{
+    filter: grayscale(0);
+    box-shadow: 3px 3px 3px rgb(142, 142, 142);
+}
 .empty-list{
     justify-content: center;
     display: flex;
@@ -127,5 +145,4 @@ main section{
     border-radius: 5px;
     overflow: auto;
     overflow-x: hidden;
-    /* box-sizing: content-box; */
 }

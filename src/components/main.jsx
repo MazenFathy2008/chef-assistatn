@@ -15,10 +15,13 @@ export default function Main() {
       setList((prevData) => [...prevData, newIng]);
     }
   }
+  function clearAll(){
+    setList([])
+  }
 
   return (
     <main>
-      <InputSection dataList={dataList} addIngredient={addIngredient}/>
+      <InputSection dataList={dataList} addIngredient={addIngredient} clear={clearAll}/>
       <ResultsSection dataList={dataList}/>
     </main>
   );

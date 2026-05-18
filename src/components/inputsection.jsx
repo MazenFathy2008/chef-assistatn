@@ -1,4 +1,4 @@
-export default function InputSection({ dataList, addIngredient }) {
+export default function InputSection({ dataList, addIngredient,clear }) {
   const listOfIng = dataList.map((ing, i) => <li key={i}>{ing}</li>);
   return (
     <section className="input-Sec">
@@ -15,6 +15,7 @@ export default function InputSection({ dataList, addIngredient }) {
         <>
           <div className="ingredients-con">
             <h1>Ingredients on hand: </h1>
+            <button onClick={clear}> Clear All</button>
             <ul>{listOfIng}</ul>
           </div>
         </>
