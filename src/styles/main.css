@@ -15,11 +15,9 @@ main section{
     display: grid;
     grid-template-rows: 10% 75% ;
     border-right:1px solid black ;
-    position: relative;
 }
 .input-Sec div, form{
     display: flex;
-    
 }
 .input-f{
     justify-content: space-evenly;
@@ -75,17 +73,7 @@ main section{
     font-size: 1.45rem;
     white-space: nowrap;
 }
-.ready-con{
-    background-color: rgb(214, 214, 214);
-    width: 100%;
-    padding: 10px;
-    gap: 10px;
-    align-items: center;
-    border-radius: 5px;
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-}
+
 .ready-con button{
     width: 50%;
     height: 40px;
@@ -110,7 +98,24 @@ main section{
     align-items: center;
     gap: 25px;
     height: 100%;
+    position: relative;
 }
+.ready-con{
+    background-color: rgb(214, 214, 214);
+    width: 100%;
+    padding: 10px;
+    gap: 10px;
+    align-items: center;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 10px;
+    right: 50%;
+    display: flex;
+}
+.ready-con div{
+    display: flex;
+}
+
 .results-sec h1{
     white-space: nowrap;
 }
@@ -120,4 +125,5 @@ main section{
     background-color: white;
     box-shadow: 0 0 3px black;
     border-radius: 5px;
+    overflow: auto;
 }

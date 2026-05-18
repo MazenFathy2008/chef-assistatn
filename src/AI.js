@@ -1,8 +1,6 @@
-import { InferenceClient } from "@huggingface/inference";
+import Groq from "groq-sdk";
 const token = import.meta.env.VITE_API_KEY_AI;
-console.log(token);
-const hf = new InferenceClient(token);
-const propmt = `You are an AI Chef Assistant that generates cooking 
+const prompt = `You are an AI Chef Assistant that generates cooking 
   recipes based on a list of ingredients provided by the user. 
   The input may contain irrelevant, noisy, or unclear data,
   and you must ignore it unless it represents more than 70% 
@@ -32,15 +30,24 @@ const propmt = `You are an AI Chef Assistant that generates cooking
   chef-like, avoid unnecessary explanations, and prioritize 
   simplicity and real-world 
   cooking success while staying faithful to the user’s
-  ingredients.`;
-async function gt() {
-  const data = await hf.chatCompletion({
-    model:"meta-llama/Llama-3.1-8B-Instruct:cerebras",
-    messages:[
-      {role:"system",content:propmt},
-      {role:"user",content:"apples, banana, milk,honey"}
-    ]
-  });
-  console.log(data.choices[0].message.content);
+  ingredients, don't put any addtional html like head and body but put header for each section in the respons.`;
+const Ai = new Groq({ apiKey: token, dangerouslyAllowBrowser: true });
+const request = {
+  messages: [
+    {
+      role: "system",
+      content: prompt,
+    },
+    {
+      role: "user",
+      content: "apple,banan,milk,honey",
+    },
+  ],
+  model: "meta-llama/llama-4-scout-17b-16e-instruct",
+  max_tokens: 500,
+  temperature: 0.3,
+};
+export default async function gt() {
+  const data = await Ai.chat.completions.create(request);
+  return data.choices[0].message.content;
 }
-gt();

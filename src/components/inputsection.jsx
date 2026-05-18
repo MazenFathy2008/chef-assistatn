@@ -17,17 +17,6 @@ export default function InputSection({ dataList, addIngredient }) {
             <h1>Ingredients on hand: </h1>
             <ul>{listOfIng}</ul>
           </div>
-          {dataList.length >= 4 ? (
-            <div className="ready-con">
-              <div>
-                <span>Ready for a recipe?</span>
-                <span className="s2">
-                  Generate a recipe from your list of ingredients
-                </span>
-              </div>
-              <button>Get a recipe</button>
-            </div>
-          ) : undefined}
         </>
       ) : (
         <h1 className="empty-list">There is no ingredients 🥱</h1>
