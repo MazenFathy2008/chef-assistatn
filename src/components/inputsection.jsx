@@ -1,23 +1,21 @@
-import data from "../data.js"
+import {useState} from "react"
 export default function InputSection(){
-    function handelSubmit(event){
-        event.preventDefault()
-        const formData = new FormData(event.currentTarget)
+    const [dataList , setList]= useState(JSON.parse(localStorage.getItem("ing"))||[])
+    localStorage.setItem("ing",JSON.stringify(dataList))
+    function addIngredient(formData){
         const newIng= formData.get("ing-in")
         if(newIng){
-            event.currentTarget.reset()
-            data.push(newIng)
-            localStorage.setItem("ing",JSON.stringify(data))
+            setList(prevData=>[...prevData,newIng])
         }
-    }
-    const listOfIng = data.map(ing=><li>{ing}</li>)
+    }   
+    const listOfIng = dataList.map((ing, i)=><li key={i}>{ing}</li>)
     return(
         <section className="input-Sec">
-            <form className="input-f" onSubmit={(event)=>{handelSubmit(event)}}>
-                <input type="text" placeholder="e.g orange" name="ing-in"/>
+            <form className="input-f" action={addIngredient}>
+                <input type="text" placeholder="e.g orange" name="ing-in" autoComplete="off"/>
                 <button>+ Add ingredient</button>
             </form>
-            {data.length>0?<div className="ingredients-con">
+            {dataList.length>0?<div className="ingredients-con">
                 <h1>Ingredients on hand:  </h1>
                 <ul>
                 {listOfIng}
