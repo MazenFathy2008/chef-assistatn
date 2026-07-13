@@ -1,4 +1,4 @@
-import gt from '../aiconfig.js';
+import gt from '../aitemp.js';
 import {useState} from"react"
 export default function resultssection({ dataList }) {
 	const [respon,setRespons] = useState()
